@@ -19,7 +19,7 @@ jobs:
       - name: Install
         run: bun install
       - name: Build
-        run: bun run build
+        run: bun run build -- --base /${{ github.repository }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
