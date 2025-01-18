@@ -12,15 +12,24 @@ import { IndexedDB, initDB } from "react-indexed-db-hook"
 import App from "./App.jsx"
 import { DBConfig } from "./indexeddb/config"
 import theme from "./theme.js"
+import { NotificationsProvider } from "@toolpad/core"
+import i18next from "i18next"
+import { initReactI18next } from "react-i18next"
+import { i18nConfig } from "./i18n/config"
 
 initDB(DBConfig)
+i18next
+  .use(initReactI18next)
+  .init(i18nConfig)
 
-createRoot(document.getElementById("root")).render(
+createRoot(/** @type {HTMLElement} */(document.getElementById("root"))).render(
   <StrictMode>
     <IndexedDB {...DBConfig}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        <NotificationsProvider>
+          <App />
+        </NotificationsProvider>
       </ThemeProvider>
     </IndexedDB>
   </StrictMode>

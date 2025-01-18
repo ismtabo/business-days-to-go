@@ -4,7 +4,8 @@
     "checkJs": true,
     "jsx": "react-jsx",
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": true
   },
   "include": [
     "src"

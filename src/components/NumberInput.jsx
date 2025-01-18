@@ -1,12 +1,13 @@
-import * as React from "react"
 import {
   Unstable_NumberInput as BaseNumberInput,
   numberInputClasses
 } from "@mui/base/Unstable_NumberInput"
 import { styled } from "@mui/system"
+import * as React from "react"
 
 /**
  * @typedef {object} NumberInputProps
+ * @property {string} [name]
  * @property {number} value
  * @property {(_e: unknown, val: number) => void} onChange
  * @property {number} [min]
@@ -26,6 +27,9 @@ export const NumberInput = React.forwardRef(function CustomNumberInput(props, re
         decrementButton: StyledButton
       }}
       slotProps={{
+        input: {
+          name: props.name
+        },
         incrementButton: {
           children: "▴"
         },

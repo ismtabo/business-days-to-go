@@ -31,7 +31,9 @@ export default [
       "quotes": ["error", "double"],
       "semi": ["error", "never"],
       "comma-dangle": ["error", "never"],
+      "react/jsx-indent": ["error", 2],
       "react/jsx-no-target-blank": "off",
+      "react/prop-types": "off",
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true }

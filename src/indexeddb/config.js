@@ -1,7 +1,7 @@
 /** @type {import('react-indexed-db-hook').IndexedDBProps} */
 export const DBConfig = {
   name: "BusinessDaysToGo",
-  version: 1,
+  version: 2,
   objectStoresMeta: [
     {
       store: "events",
@@ -16,7 +16,7 @@ export const DBConfig = {
       storeConfig: { keyPath: "id", autoIncrement: true },
       storeSchema: [
         { name: "name", keypath: "name", options: { unique: false } },
-        { name: "date", keypath: "date", options: { unique: true } }
+        { name: "date", keypath: "date", options: { unique: false } }
       ]
     }
   ]

@@ -16,6 +16,6 @@ export const businessDaysBetween = (startDate, endDate, nonWorkingDays) => {
   }
   const difference = dayjs(endDate).diff(dayjs(startDate), "day")
   const numberOfWeeks = dayjs(endDate).diff(dayjs(startDate), "week")
-  const nonWorkingDaysBetween = nonWorkingDays.filter((day) => dayjs(day).isBetween(dayjs(startDate), dayjs(endDate), "day", "[]"))
-  return difference - numberOfWeeks * 2 - nonWorkingDaysBetween.length - 1
+  const nonWorkingDaysBetween = new Set(nonWorkingDays.filter((day) => dayjs(day).isBetween(dayjs(startDate), dayjs(endDate), "day", "[]")))
+  return difference - numberOfWeeks * 2 - nonWorkingDaysBetween.size - 1
 }
