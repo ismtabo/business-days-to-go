@@ -1,4 +1,4 @@
-import { Close, Delete, Edit, Help, ImportContacts, ImportExport } from "@mui/icons-material"
+import { Close, Delete, Edit, GitHub, Help, ImportContacts, ImportExport } from "@mui/icons-material"
 import { AppBar, Box, Button, IconButton, InputLabel, List, ListItem, ListItemText, Modal, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Toolbar, Tooltip, Typography } from "@mui/material"
 import { useNotifications } from "@toolpad/core"
 import { useFormik } from "formik"
@@ -314,6 +314,12 @@ function App() {
                   <ImportContacts />
                 </Stack>
               </Tooltip>
+            </IconButton>
+            <IconButton color="inherit" href="https://github.com/ismtabo/business-days-to-go" target="_blank" rel="noreferrer">
+              <Stack direction="row" spacing={1}>
+                <Typography variant="button">{t("Code")}</Typography>
+                <GitHub />
+              </Stack>
             </IconButton>
           </Box>
         </Toolbar>

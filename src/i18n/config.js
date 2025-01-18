@@ -16,6 +16,7 @@ export const i18nConfig = {
         "Export": "Exportar",
         "Import data from file": "Importar datos desde un archivo",
         "Import": "Importar",
+        "Code": "Código",
         "Due Dates": "Fechas de Vencimiento",
         "Add Date": "Agregar Fecha",
         "Non-Working Days": "Días No Laborables",
