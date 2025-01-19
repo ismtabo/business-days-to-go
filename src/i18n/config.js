@@ -4,6 +4,8 @@ export const i18nConfig = {
   resources: {
     es: {
       translation: {
+        "This website is not prepared for small screens.": "Este sitio web no está preparado para pantallas pequeñas.",
+        "Please, use a device with a larger screen.": "Por favor, utiliza un dispositivo con una pantalla más grande.",
         "Importing data...": "Importando datos...",
         "Invalid data format": "Formato de datos inválido",
         "Data imported successfully": "Datos importados correctamente",

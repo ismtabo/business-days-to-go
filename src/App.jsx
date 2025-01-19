@@ -1,5 +1,5 @@
 import { Close, Delete, Edit, GitHub, Help, ImportContacts, ImportExport } from "@mui/icons-material"
-import { AppBar, Box, Button, IconButton, InputLabel, List, ListItem, ListItemText, Modal, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Toolbar, Tooltip, Typography } from "@mui/material"
+import { AppBar, Box, Button, IconButton, InputLabel, List, ListItem, ListItemText, Modal, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Toolbar, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { useNotifications } from "@toolpad/core"
 import { useFormik } from "formik"
 import { useCallback, useEffect, useMemo, useState } from "react"
@@ -53,6 +53,8 @@ const DataSchema = z.object({
  */
 
 function App() {
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.up("md"))
   const notifications = useNotifications()
   const {t} = useTranslation()
   const {getAll: getAllEvents, add: addEvent, update: updateEvent, deleteRecord: deleteEvent} = useIndexedDB("events")
@@ -283,6 +285,31 @@ function App() {
     a.click()
     URL.revokeObjectURL(url)
   }, [events, days])
+  if (!matches) {
+    return (
+      <Box height="100%">
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              {t("Business Days Calculator")}
+            </Typography>
+            <Box>
+              <IconButton color="inherit" href="https://github.com/ismtabo/business-days-to-go" target="_blank" rel="noreferrer">
+                <Stack direction="row" spacing={1}>
+                  <Typography variant="button">{t("Code")}</Typography>
+                  <GitHub />
+                </Stack>
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Stack height="100%" justifyContent="center" alignItems="center" margin={2}>
+          <Typography>{t("This website is not prepared for small screens.")}</Typography>
+          <Typography>{t("Please, use a device with a larger screen.")}</Typography>
+        </Stack>
+      </Box>
+    )
+  }
   return (
     <Box height="100%">
       <AppBar position="static">
